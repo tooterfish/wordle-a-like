@@ -1,0 +1,31 @@
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  margin: 4px;
+  font-size:48px;
+  text-transform: uppercase;
+  border: 1px solid grey;
+}
+
+.blank {
+  background-color: white;
+}
+
+.no-match {
+  background-color: lightgray;
+}
+
+.match {
+  background-color: lightgreen;
+}
+
+.partial-match {
+  background-color: gold;
+}
+
+.current-input {
+  background-color: blue;
+}
