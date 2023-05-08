@@ -1,4 +1,6 @@
-export default function checkGuess(word, guess) {
+export default function checkGuess(w, g) {
+  const word = [...w]
+  const guess = [...g]
  //assume word and guess are already arrays, not strings
  const checkedGuess = []
 

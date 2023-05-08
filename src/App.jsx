@@ -10,9 +10,8 @@ import RowBlank from './RowBlank'
 import Keyboard from './Keyboard'
 
 export default function App() {
-  const word = 'fools'.split('')
-
   const [guess, setGuess] = useState([])
+  const [word, setWord] = useState('fools'.split(''))
   const [checkedGuesses, setCheckedGuesses] = useState([[], [], [], [], [], []])
   let [inputRow, setInputRow] = useState(0)
   
