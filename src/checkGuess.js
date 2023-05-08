@@ -1,8 +1,8 @@
 export default function checkGuess(w, g) {
+  //assume word and guess are already arrays, not strings
   const word = [...w]
   const guess = [...g]
- //assume word and guess are already arrays, not strings
- const checkedGuess = []
+  const checkedGuess = []
 
  //check full matches
  for (let i = 0; i < guess.length; i++) {
