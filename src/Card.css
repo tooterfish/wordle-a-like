@@ -7,7 +7,7 @@
   margin: 4px;
   font-size:48px;
   text-transform: uppercase;
-  border: 1px solid grey;
+  border: 1px solid lightgrey;
 }
 
 .blank {
@@ -15,17 +15,24 @@
 }
 
 .no-match {
-  background-color: lightgray;
+  background-color: lightgrey;
+  border: 1px solid lightgrey;
 }
 
 .match {
   background-color: lightgreen;
+  border: 1px solid lightgreen;
 }
 
 .partial-match {
   background-color: gold;
+  border: 1px solid gold;
 }
 
 .current-input {
-  background-color: blue;
+  box-shadow: 0px 0px 5px 1px lightgrey;
+}
+
+.filled {
+  border: 1px solid grey;
 }
