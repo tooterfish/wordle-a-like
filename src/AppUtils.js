@@ -2,14 +2,22 @@ export function checkGuess(w, g) {
   const word = [...w]
   const guess = [...g]
   const checkedGuess = []
+  let hasWon = false
 
  //check full matches
+ let matches = 0
  for (let i = 0; i < guess.length; i++) {
    if (guess[i] === word[i]) {
      checkedGuess[i] = {char: guess[i], match: 'match'}
      guess[i] = ' '
      word[i] = ' '
+     matches += 1
    }
+ }
+
+ if (matches === word.length) {
+  hasWon = true
+  return {newGuess: checkedGuess, hasWon: hasWon}
  }
 
  //check partial matches
@@ -26,7 +34,7 @@ export function checkGuess(w, g) {
      }
    }
  }
- return checkedGuess
+ return {newGuess: checkedGuess, hasWon: hasWon}
 }
 
 export function getRandomWord(words) {
