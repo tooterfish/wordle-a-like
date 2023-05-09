@@ -1,5 +1,4 @@
-export default function checkGuess(w, g) {
-  //assume word and guess are already arrays, not strings
+export function checkGuess(w, g) {
   const word = [...w]
   const guess = [...g]
   const checkedGuess = []
@@ -20,7 +19,7 @@ export default function checkGuess(w, g) {
      if (partialMatchIndex !== -1) {
        checkedGuess[i] = {char: guess[i], match: 'partial-match'}
        guess[i] = ' '
-       word[i] = ' '
+       word[partialMatchIndex] = ' '
      }
      else {
        checkedGuess[i] = {char: guess[i], match: 'no-match'}
@@ -28,4 +27,9 @@ export default function checkGuess(w, g) {
    }
  }
  return checkedGuess
+}
+
+export function getRandomWord(words) {
+  const i = Math.floor(Math.random() * words.length)
+  return words[i]
 }

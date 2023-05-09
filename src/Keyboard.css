@@ -21,3 +21,15 @@
   font-size: 16px;
   width: 60px;
 }
+
+.match {
+  background-color: lightgreen;
+}
+
+.partial-match {
+  background-color: gold;
+}
+
+.no-match {
+  background-color: grey;
+}

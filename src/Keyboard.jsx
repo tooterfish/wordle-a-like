@@ -1,7 +1,7 @@
 import './Keyboard.css'
 import Key from './Key'
 
-export default function Keyboard({guess, setGuess, submitGuess}) {
+export default function Keyboard({guess, setGuess, submitGuess, foundLetters}) {
   const top = 'qwertyuiop'.split('')
   const mid = 'asdfghjkl'.split('')
   const bot = ['enter', ...'zxcvbnm'.split(''), 'del']
@@ -29,16 +29,16 @@ export default function Keyboard({guess, setGuess, submitGuess}) {
   return <>
     <div>
       <div className="key-row">
-        {top.map((text) => { return <button key={text} value={text} onClick={handleClick} className="key">{text}</button> })}
+        {top.map((text) => { return <button key={text} value={text} onClick={handleClick} className={`key ${foundLetters[text]}`}>{text}</button> })}
       </div>
       <div className="key-row">
-        {mid.map((text) => { return <button key={text} value={text} onClick={handleClick} className="key">{text}</button> })}
+        {mid.map((text) => { return <button key={text} value={text} onClick={handleClick} className={`key ${foundLetters[text]}`}>{text}</button> })}
       </div>
       <div className="key-row">
         {bot.map((text) => {
           let special = ''
           if (text.length > 1) special = 'special-key'
-          return <button key={text} value={text} onClick={handleClick} className={`key ${special}`}>{text}</button> })}
+          return <button key={text} value={text} onClick={handleClick} className={`key ${foundLetters[text]} ${special}`}>{text}</button> })}
       </div>
     </div>
   </>
