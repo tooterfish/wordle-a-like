@@ -21,6 +21,7 @@ export default function App() {
   
   useEffect(() => {
       setWord(getRandomWord(words))
+      // setWord('hexyl')
   }, [])
 
   useEffect(() => {
@@ -43,9 +44,22 @@ export default function App() {
       const {newGuess, hasWon}= checkGuess(word, guess)
       const newFoundLetters = {...foundLetters}
       newGuess.forEach((letter) => {
-        if (newFoundLetters[letter.char] !== 'match') {
+        if (newFoundLetters[letter.char]) {
+          switch (letter.match) {
+            case 'match':
+              if (newFoundLetters[letter.char] !== 'match') newFoundLetters[letter.char] = 'match'
+              break
+            case 'partial-match':
+              if (newFoundLetters[letter.char] !== 'match' && newFoundLetters[letter.char] !== 'no-match') newFoundLetters[letter.char] = 'partial-match'
+              break
+          }
+        }
+        else {
           newFoundLetters[letter.char] = letter.match
         }
+        // if (letter.match === 'match') newFoundLetters[letter.char] = letter.match
+        // else if (letter.match === 'partial-match' && newFoundLetters[letter.char] !== 'match') newFoundLetters[letter.char] = letter.match
+        // else newFoundLetters[letter.char] = letter.match
       })
       setFoundLetters(newFoundLetters)
       const newGuesses = [...checkedGuesses]
