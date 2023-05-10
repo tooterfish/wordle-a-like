@@ -14,7 +14,7 @@ import words from './words.json'
 export default function App() {
   const [word, setWord] = useState([])
   const [guess, setGuess] = useState([])
-  const [isWord, setIsWord] = useState([''])
+  const [isWord, setIsWord] = useState(true)
   const [checkedGuesses, setCheckedGuesses] = useState([[], [], [], [], [], []])
   const [foundLetters, setFoundLetters] = useState({})
   let [inputRow, setInputRow] = useState(0)
@@ -24,14 +24,16 @@ export default function App() {
   }, [])
 
   useEffect(() => {
-    if (guess.length === word.length) {
-      if (!wordExists(words, guess.join(''))) {
-        setIsWord('not-a-word')
+    if (word.length > 0) {
+      if (guess.length === word.length) {
+        if (!wordExists(words, guess.join(''))) {
+          setIsWord(false)
+        }
+        else setIsWord(true)
       }
-      else setIsWord('')
-    }
-    else {
-      setIsWord('')
+      else {
+        setIsWord(true)
+      }
     }
   }, [guess])
 

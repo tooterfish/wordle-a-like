@@ -9,7 +9,7 @@ export default function Row({guess, wordLength, isWord}) {
   return <>
   <div className="row input-row">
     {guess.map((char, i) => {
-      return <Card key={i} char={char} frontStyle={`blank filled ${isWord}`}/>
+      return <Card key={i} char={char} frontStyle={`blank filled ${isWord ? 'a-word' : 'not-a-word'}`}/>
     })}
     {remaining.map((_, i) => {
       if (i > 0) input = ''
