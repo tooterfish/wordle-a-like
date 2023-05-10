@@ -40,6 +40,10 @@ export default function App() {
     }
   }, [guess])
 
+  useEffect(() => {
+    console.log(hasWon, "<<<<< hasWon", isPlaying, "<<<<< isPlaying")
+  }, [inputRow])
+
   function submitGuess() {
     if (isWord) {
       console.log(word) //debug
@@ -60,6 +64,7 @@ export default function App() {
           newFoundLetters[letter.char] = letter.match
         }
       })
+      // setHasWon(isCorrect)
       setFoundLetters(newFoundLetters)
       const newGuesses = [...checkedGuesses]
       newGuesses[inputRow] = newGuess
@@ -67,21 +72,17 @@ export default function App() {
       setInputRow(inputRow + 1)
       setGuess([])
 
-      console.log(isCorrect)
+      // console.log(isCorrect)
 
       if (isCorrect) {
-        console.log('<<<<<<<<<<')
         setHasWon(true)
         setIsPlaying(false)
       } 
-      else {
-        if (inputRow > checkedGuesses.length) {
+      if (inputRow >= checkedGuesses.length - 1) {
           setIsPlaying(false)
-        }
       }
 
-      console.log('gameover ', !isPlaying, ' has won ', hasWon)
-
+      // console.log('gameover ', !isPlaying, ' has won ', hasWon)
     }
   }
 
