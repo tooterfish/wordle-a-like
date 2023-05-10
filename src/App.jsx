@@ -38,21 +38,23 @@ export default function App() {
   }, [guess])
 
   function submitGuess() {
-    console.log(word) //debug
-    const {newGuess, hasWon}= checkGuess(word, guess)
-    const newFoundLetters = {...foundLetters}
-    newGuess.forEach((letter) => {
-      if (newFoundLetters[letter.char] !== 'match') {
-        newFoundLetters[letter.char] = letter.match
-      }
-    })
-    setFoundLetters(newFoundLetters)
-    const newGuesses = [...checkedGuesses]
-    newGuesses[inputRow] = newGuess
-    setCheckedGuesses(newGuesses)
-    setInputRow(inputRow += 1)
-    setGuess([])
-    console.log(hasWon)
+    if (isWord) {
+      console.log(word) //debug
+      const {newGuess, hasWon}= checkGuess(word, guess)
+      const newFoundLetters = {...foundLetters}
+      newGuess.forEach((letter) => {
+        if (newFoundLetters[letter.char] !== 'match') {
+          newFoundLetters[letter.char] = letter.match
+        }
+      })
+      setFoundLetters(newFoundLetters)
+      const newGuesses = [...checkedGuesses]
+      newGuesses[inputRow] = newGuess
+      setCheckedGuesses(newGuesses)
+      setInputRow(inputRow += 1)
+      setGuess([])
+      console.log(hasWon)
+    }
   }
 
   return (
