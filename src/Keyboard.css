@@ -16,6 +16,9 @@
   margin: 2px;
   width: 30px;
   height: 45px;
+
+  transition-timing-function: ease-out;
+  transition: 250ms;
 }
 
 .key:focus {
@@ -23,8 +26,7 @@
 }
 
 .key:hover {
-  outline: 1px solid grey;
-  transition: 250ms;
+  transform: translateY(-2px);
 }
 
 .special-key {

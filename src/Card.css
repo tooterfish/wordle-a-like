@@ -84,11 +84,10 @@
 }
 
 .a-word {
-  color: black;
   transition: 250ms;
 }
 
 .not-a-word {
-  color: red;
+  border: 1px solid red;
   transition: 250ms;
 }
