@@ -31,14 +31,17 @@
   width: 45px;
 }
 
-.match {
-  background-color: lightgreen;
+.key-match {
+  background-color: green;
+  color: white;
 }
 
-.partial-match {
-  background-color: gold;
+.key-partial-match {
+  background-color: orange;
+  color: white;
 }
 
-.no-match {
+.key-no-match {
   background-color: grey;
+  color: white;
 }

@@ -7,9 +7,10 @@
   position: relative;
   width: 40px;
   height: 40px;
-  margin: 2px;
+  margin: 3px;
 
   font-size:24px;
+  font-weight:bold;
   text-transform: uppercase;
   color: black;
 
@@ -60,19 +61,22 @@
   border: 1px solid darkgrey;
 }
 
-.no-match {
-  background-color: lightgrey;
+.card-no-match {
+  background-color: grey;
   border: 1px solid grey;
+  color: white;
 }
 
-.match {
-  background-color: lightgreen;
-  border: 1px solid lightgreen;
+.card-match {
+  background-color: green;
+  border: 1px solid green;
+  color: white;
 }
 
-.partial-match {
-  background-color: gold;
-  border: 1px solid gold;
+.card-partial-match {
+  background-color: orange;
+  border: 1px solid orange;
+  color: white;
 }
 
 .current-input {

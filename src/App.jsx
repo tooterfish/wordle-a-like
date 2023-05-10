@@ -17,7 +17,10 @@ export default function App() {
   const [isWord, setIsWord] = useState(true)
   const [checkedGuesses, setCheckedGuesses] = useState([[], [], [], [], [], []])
   const [foundLetters, setFoundLetters] = useState({})
-  let [inputRow, setInputRow] = useState(0)
+  const [inputRow, setInputRow] = useState(0)
+
+  const [hasWon, setHasWon] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(true)
   
   useEffect(() => {
       setWord(getRandomWord(words))
@@ -40,7 +43,7 @@ export default function App() {
   function submitGuess() {
     if (isWord) {
       console.log(word) //debug
-      const {newGuess, hasWon}= checkGuess(word, guess)
+      const {newGuess, isCorrect}= checkGuess(word, guess)
       const newFoundLetters = {...foundLetters}
       newGuess.forEach((letter) => {
         if (newFoundLetters[letter.char]) {
@@ -61,9 +64,24 @@ export default function App() {
       const newGuesses = [...checkedGuesses]
       newGuesses[inputRow] = newGuess
       setCheckedGuesses(newGuesses)
-      setInputRow(inputRow += 1)
+      setInputRow(inputRow + 1)
       setGuess([])
-      console.log(hasWon)
+
+      console.log(isCorrect)
+
+      if (isCorrect) {
+        console.log('<<<<<<<<<<')
+        setHasWon(true)
+        setIsPlaying(false)
+      } 
+      else {
+        if (inputRow > checkedGuesses.length) {
+          setIsPlaying(false)
+        }
+      }
+
+      console.log('gameover ', !isPlaying, ' has won ', hasWon)
+
     }
   }
 

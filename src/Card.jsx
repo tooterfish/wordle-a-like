@@ -17,7 +17,7 @@ export default function Card({char, flipIndex, frontStyle, backStyle}) {
   return <>
   <div className={`card ${flipped}`}>
     <div className={`front ${frontStyle}`}>{char}</div>
-    <div className={`back ${backStyle}`}>{char}</div>
+    <div className={`back card-${backStyle}`}>{char}</div>
   </div>
   </>
   

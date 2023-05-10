@@ -1,3 +1,7 @@
+* {
+  font-family:monospace;
+}
+
 .game-board {
   margin-bottom: 16px;
 }
