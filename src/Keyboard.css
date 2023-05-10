@@ -9,27 +9,26 @@
   align-items: center;
   justify-content: center;
   text-transform: uppercase;
-  font-size: 24px;
+  font-size: 16px;
   background-color: lightgrey;
   border-radius: 4px;
-  margin: 1px;
-  width: 40px;
-  height: 60px;
+  margin: 2px;
+  width: 30px;
+  height: 45px;
 }
 
 .key:focus {
-  /* border: 1px solid black; */
   outline: 1px solid grey;
 }
 
 .key:hover {
-  background-color: grey;
+  outline: 1px solid grey;
   transition: 250ms;
 }
 
 .special-key {
-  font-size: 16px;
-  width: 60px;
+  font-size: 12px;
+  width: 45px;
 }
 
 .match {

@@ -1,11 +1,15 @@
 .card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   background-color: transparent;
   position: relative;
-  width: 60px;
-  height: 60px;
-  margin: 4px;
+  width: 40px;
+  height: 40px;
+  margin: 2px;
 
-  font-size:48px;
+  font-size:24px;
   text-transform: uppercase;
   color: black;
 
@@ -44,7 +48,7 @@
 
   position: absolute;
 
-  transform: rotateY(180deg)
+  transform: rotateY(180deg);
 }
 
 .blank {
@@ -58,7 +62,7 @@
 
 .no-match {
   background-color: lightgrey;
-  border: 1px solid lightgrey;
+  border: 1px solid grey;
 }
 
 .match {
