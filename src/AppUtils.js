@@ -15,6 +15,7 @@ export function checkGuess(w, g) {
    }
  }
 
+ // if all characters are full matches no need to check for partial-matches
  if (matches === word.length) {
   hasWon = true
   return {newGuess: checkedGuess, hasWon: hasWon}

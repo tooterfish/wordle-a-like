@@ -4,7 +4,7 @@ import Key from './Key'
 export default function Keyboard({guess, setGuess, submitGuess, foundLetters}) {
   const top = 'qwertyuiop'.split('')
   const mid = 'asdfghjkl'.split('')
-  const bot = ['enter', ...'zxcvbnm'.split(''), 'del']
+  const bot = [...'zxcvbnm'.split(''), 'del', 'enter']
 
   function handleClick(e) {
     const newGuess = [...guess]

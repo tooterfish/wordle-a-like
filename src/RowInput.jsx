@@ -8,11 +8,11 @@ export default function Row({guess, wordSize}) {
   return <>
   <div className="row input-row">
     {guess.map((char, i) => {
-      return <Card key={i} char={char} match={'blank filled'}/>
+      return <Card key={i} char={char} frontStyle={'blank filled'}/>
     })}
     {remaining.map((_, i) => {
       if (i > 0) input = ''
-      return <Card key={i} match={`blank ${input}`}/>
+      return <Card key={i} frontStyle={`blank ${input}`}/>
     })}
   </div>
   </>
