@@ -17,6 +17,16 @@
   height: 60px;
 }
 
+.key:focus {
+  /* border: 1px solid black; */
+  outline: 1px solid grey;
+}
+
+.key:hover {
+  background-color: grey;
+  transition: 250ms;
+}
+
 .special-key {
   font-size: 16px;
   width: 60px;
