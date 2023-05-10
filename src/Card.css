@@ -57,8 +57,16 @@
   border: 1px solid lightgrey;
 }
 
+@keyframes filled {
+  50% {
+    transform: scale(1.1)
+  }
+}
+
 .filled {
   border: 1px solid darkgrey;
+  animation-name: filled;
+  animation-duration: 0.2s;
 }
 
 .card-no-match {
