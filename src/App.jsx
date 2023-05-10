@@ -19,7 +19,8 @@ export default function App() {
   let [inputRow, setInputRow] = useState(0)
   
   useEffect(() => {
-      setWord(getRandomWord(words))
+      // setWord(getRandomWord(words))
+      setWord('vorpal')
   }, [])
 
   function submitGuess() {
@@ -49,7 +50,7 @@ export default function App() {
         else return <RowBlank key={i} wordSize={word.length}/>
       })}
     </div>
-      <Keyboard guess={guess} setGuess={setGuess} submitGuess={submitGuess} foundLetters={foundLetters}/>
+      <Keyboard guess={guess} setGuess={setGuess} submitGuess={submitGuess} foundLetters={foundLetters} wordSize={word.length}/>
     </>
   )
 }

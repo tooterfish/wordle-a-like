@@ -1,7 +1,7 @@
 import './Keyboard.css'
 import Key from './Key'
 
-export default function Keyboard({guess, setGuess, submitGuess, foundLetters}) {
+export default function Keyboard({guess, setGuess, submitGuess, foundLetters, wordSize}) {
   const top = 'qwertyuiop'.split('')
   const mid = 'asdfghjkl'.split('')
   const bot = [...'zxcvbnm'.split(''), 'del', 'enter']
@@ -10,7 +10,7 @@ export default function Keyboard({guess, setGuess, submitGuess, foundLetters}) {
     const newGuess = [...guess]
     switch(e.target.value) {
       case 'enter':
-        if (newGuess.length === 5) {
+        if (newGuess.length === wordSize) {
           submitGuess()
         }
         break
@@ -19,7 +19,7 @@ export default function Keyboard({guess, setGuess, submitGuess, foundLetters}) {
         setGuess(newGuess)
         break
       default:
-        if (newGuess.length < 5) {
+        if (newGuess.length < wordSize) {
           newGuess.push(e.target.value)
           setGuess(newGuess)
         }

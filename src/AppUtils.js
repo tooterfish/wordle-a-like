@@ -43,7 +43,7 @@ export function getRandomWord(words) {
   return words[i]
 }
 
-export function containsWord(words, word) {
+export function wordExists(words, word) {
   if(binarySearch(words, word) !== -1) return true
   return false
 }
