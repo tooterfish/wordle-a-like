@@ -43,13 +43,19 @@ export function getRandomWord(words) {
   return words[i]
 }
 
+export function containsWord(words, word) {
+  if(binarySearch(words, word) !== -1) return true
+  return false
+}
+
 function binarySearch(array, value) {
   let low = 0
   let high = array.length - 1
   while (low <= high) {
     const mid = Math.floor((low + high) / 2)
-    if (array[mid] >= value) high = mid - 1
-    else low = mid + 1
+    if (array[mid] > value) high = mid - 1
+    else if (array[mid] < value) low = mid + 1
+    else return mid
   }
-  return low
+  return -1
 }
