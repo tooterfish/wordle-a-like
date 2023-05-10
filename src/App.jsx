@@ -2,7 +2,7 @@ import './App.css'
 
 import { useEffect, useState } from 'react'
 
-import {checkGuess, getRandomWord} from './AppUtils'
+import {checkGuess, getRandomWord, wordExists} from './AppUtils'
 
 import RowChecked from './RowChecked'
 import RowInput from './RowInput'
@@ -14,6 +14,7 @@ import words from './words.json'
 export default function App() {
   const [word, setWord] = useState([])
   const [guess, setGuess] = useState([])
+  const [isWord, setIsWord] = useState([''])
   const [checkedGuesses, setCheckedGuesses] = useState([[], [], [], [], [], []])
   const [foundLetters, setFoundLetters] = useState({})
   let [inputRow, setInputRow] = useState(0)
@@ -21,6 +22,18 @@ export default function App() {
   useEffect(() => {
       setWord(getRandomWord(words))
   }, [])
+
+  useEffect(() => {
+    if (guess.length === word.length) {
+      if (!wordExists(words, guess.join(''))) {
+        setIsWord('not-a-word')
+      }
+      else setIsWord('')
+    }
+    else {
+      setIsWord('')
+    }
+  }, [guess])
 
   function submitGuess() {
     console.log(word) //debug
@@ -44,7 +57,7 @@ export default function App() {
     <>
     <div className="game-board">
       {checkedGuesses.map((checkedGuess, i) => {
-        if (i === inputRow) return <RowInput key={i} guess={guess} wordLength={word.length}/>
+        if (i === inputRow) return <RowInput key={i} guess={guess} wordLength={word.length} isWord={isWord}/>
         else if (checkedGuess.length !== 0) return <RowChecked key={i} checkedGuess={checkedGuess} />
         else return <RowBlank key={i} wordSize={word.length}/>
       })}

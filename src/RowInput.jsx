@@ -1,7 +1,7 @@
 import './Row.css'
 import Card from './Card'
 
-export default function Row({guess, wordLength, wordExists}) {
+export default function Row({guess, wordLength, isWord}) {
   const n = wordLength - guess.length
   const remaining = Array.from({length: n})
   let input = 'current-input'
@@ -9,7 +9,7 @@ export default function Row({guess, wordLength, wordExists}) {
   return <>
   <div className="row input-row">
     {guess.map((char, i) => {
-      return <Card key={i} char={char} frontStyle={`blank filled ${wordExists}`}/>
+      return <Card key={i} char={char} frontStyle={`blank filled ${isWord}`}/>
     })}
     {remaining.map((_, i) => {
       if (i > 0) input = ''

@@ -44,8 +44,8 @@ export function getRandomWord(words) {
 }
 
 export function wordExists(words, word) {
-  if(binarySearch(words, word) !== -1) return true
-  return false
+  if(binarySearch(words, word) === -1) return false
+  return true
 }
 
 function binarySearch(array, value) {

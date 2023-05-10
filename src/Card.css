@@ -73,3 +73,7 @@
 .current-input {
   background-color: whitesmoke;
 }
+
+.not-a-word {
+  background-color: red;
+}
