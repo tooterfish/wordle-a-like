@@ -1,8 +1,8 @@
 import './Row.css'
 import Card from './Card'
 
-export default function Row({guess, wordSize, wordExists}) {
-  const n = wordSize - guess.length
+export default function Row({guess, wordLength, wordExists}) {
+  const n = wordLength - guess.length
   const remaining = Array.from({length: n})
   let input = 'current-input'
 

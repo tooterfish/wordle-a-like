@@ -19,8 +19,7 @@ export default function App() {
   let [inputRow, setInputRow] = useState(0)
   
   useEffect(() => {
-      // setWord(getRandomWord(words))
-      setWord('vorpal')
+      setWord(getRandomWord(words))
   }, [])
 
   function submitGuess() {
@@ -45,12 +44,12 @@ export default function App() {
     <>
     <div className="game-board">
       {checkedGuesses.map((checkedGuess, i) => {
-        if (i === inputRow) return <RowInput key={i} guess={guess} wordSize={word.length}/>
+        if (i === inputRow) return <RowInput key={i} guess={guess} wordLength={word.length}/>
         else if (checkedGuess.length !== 0) return <RowChecked key={i} checkedGuess={checkedGuess} />
         else return <RowBlank key={i} wordSize={word.length}/>
       })}
     </div>
-      <Keyboard guess={guess} setGuess={setGuess} submitGuess={submitGuess} foundLetters={foundLetters} wordSize={word.length}/>
+      <Keyboard guess={guess} setGuess={setGuess} submitGuess={submitGuess} foundLetters={foundLetters} wordLength={word.length}/>
     </>
   )
 }
