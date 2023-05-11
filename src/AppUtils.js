@@ -43,6 +43,13 @@ export function getRandomWord(words) {
   return words[i]
 }
 
+export function getWordOfTheDay(words) {
+  const date = new Date
+  const seed = Number(date.getUTCDate().toString() + date.getUTCMonth().toString() + date.getUTCFullYear().toString())
+  const i = Math.floor(splitmix32()(seed) * words.length)
+  return words[i]
+}
+
 export function wordExists(words, word) {
   if(binarySearch(words, word) === -1) return false
   return true
@@ -67,11 +74,4 @@ function splitmix32(a) {
         t = t ^ t >>> 15; t = Math.imul(t, 0x735a2d97);
     return ((t = t ^ t >>> 15) >>> 0) / 4294967296;
   }
-}
-
-export function getWordOfTheDay(words) {
-  const date = new Date
-  const seed = Number(date.getUTCDate().toString() + date.getUTCMonth().toString() + date.getUTCFullYear().toString())
-  const i = Math.floor(splitmix32()(seed) * words.length)
-  return words[i]
 }
