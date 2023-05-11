@@ -8,6 +8,8 @@ import RowChecked from './RowChecked'
 import RowInput from './RowInput'
 import RowBlank from './RowBlank'
 import Keyboard from './Keyboard'
+import GameOver from './GameOver'
+import Restart from './Restart'
 
 import words from './words.json'
 
@@ -44,8 +46,26 @@ export default function App() {
     console.log(hasWon, "<<<<< hasWon", isPlaying, "<<<<< isPlaying")
   }, [inputRow])
 
+  function reset() {
+    setCheckedGuesses([[], [], [], [], [], []])
+    setInputRow(0)
+    setFoundLetters({})
+    setGuess([])
+    setIsPlaying(true)
+    setHasWon(false)
+  }
+
+  function randomWord() {
+    reset()
+    setWord(getRandomWord(words))
+  }
+
+  function wordOfTheDay() {
+    
+  }
+
   function submitGuess() {
-    if (isWord) {
+    if (isWord) {}
       console.log(word) //debug
       const {newGuess, isCorrect}= checkGuess(word, guess)
       const newFoundLetters = {...foundLetters}
@@ -83,7 +103,7 @@ export default function App() {
       }
 
       // console.log('gameover ', !isPlaying, ' has won ', hasWon)
-    }
+    // }
   }
 
   return (
@@ -95,7 +115,14 @@ export default function App() {
         else return <RowBlank key={i} wordSize={word.length}/>
       })}
     </div>
+    {
+      isPlaying ?
       <Keyboard guess={guess} setGuess={setGuess} submitGuess={submitGuess} foundLetters={foundLetters} wordLength={word.length}/>
+      : <>
+      <GameOver word={word} hasWon={hasWon}/>
+      <Restart randomWord={randomWord} wordOfTheDay={wordOfTheDay}/>
+      </>
+    }
     </>
   )
 }
