@@ -2,7 +2,7 @@ import './App.css'
 
 import { useEffect, useState } from 'react'
 
-import {checkGuess, getRandomWord, wordExists} from './AppUtils'
+import {checkGuess, getRandomWord, getWordOfTheDay, wordExists} from './AppUtils'
 
 import RowChecked from './RowChecked'
 import RowInput from './RowInput'
@@ -61,7 +61,8 @@ export default function App() {
   }
 
   function wordOfTheDay() {
-    
+    reset()
+    setWord(getWordOfTheDay(words))
   }
 
   function submitGuess() {

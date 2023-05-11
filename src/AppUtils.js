@@ -68,3 +68,10 @@ function splitmix32(a) {
     return ((t = t ^ t >>> 15) >>> 0) / 4294967296;
   }
 }
+
+export function getWordOfTheDay(words) {
+  const date = new Date
+  const seed = Number(date.getUTCDate().toString() + date.getUTCMonth().toString() + date.getUTCFullYear().toString())
+  const i = Math.floor(splitmix32()(seed) * words.length)
+  return words[i]
+}
