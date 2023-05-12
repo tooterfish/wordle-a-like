@@ -1,7 +1,8 @@
 export default function GameOver({word, hasWon}) {
   if (hasWon) {
     return<>
-    <div>Congratulations! You successfully guessed {word}!</div>
+    <div>Congratulations! You successfully guessed {word}!
+    </div>
     </> 
   }
   else {

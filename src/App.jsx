@@ -25,7 +25,7 @@ export default function App() {
   const [isPlaying, setIsPlaying] = useState(true)
   
   useEffect(() => {
-      setWord(getRandomWord(words))
+      setWord(getWordOfTheDay(words))
   }, [])
 
   useEffect(() => {
