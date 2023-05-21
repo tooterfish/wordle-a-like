@@ -2,7 +2,7 @@ import './App.css'
 
 import { useEffect, useState } from 'react'
 
-import {checkGuess, getRandomWord, getWordOfTheDay, wordExists} from './AppUtils'
+import {checkGuess, getRandomWord, getWordOfTheDay, wordExists} from './appUtils'
 
 import RowChecked from './RowChecked'
 import RowInput from './RowInput'
@@ -12,9 +12,11 @@ import GameOver from './GameOver'
 import Restart from './Restart'
 
 import words from './words.json'
+import wordsAndDefs from './wordsAndDefs.json'
 
 export default function App() {
-  const [word, setWord] = useState([])
+  const [word, setWord] = useState('')
+  const [definition, setDefinition] = useState('')
   const [guess, setGuess] = useState([])
   const [isWord, setIsWord] = useState(true)
   const [checkedGuesses, setCheckedGuesses] = useState([[], [], [], [], [], []])
@@ -25,7 +27,9 @@ export default function App() {
   const [isPlaying, setIsPlaying] = useState(true)
   
   useEffect(() => {
-      setWord(getWordOfTheDay(words))
+    const newWord = getWordOfTheDay(wordsAndDefs)
+      setWord(newWord[0])
+      setDefinition(newWord[1])
   }, [])
 
   useEffect(() => {
@@ -57,12 +61,16 @@ export default function App() {
 
   function randomWord() {
     reset()
-    setWord(getRandomWord(words))
+    const newWord = getRandomWord(wordsAndDefs)
+    setWord(newWord[0])
+    setDefinition(newWord[1])
   }
 
   function wordOfTheDay() {
     reset()
-    setWord(getWordOfTheDay(words))
+    const newWord = getWordOfTheDay(wordsAndDefs)
+    setWord(newWord[0])
+    setDefinition(newWord[1])
   }
 
   function submitGuess() {
@@ -120,7 +128,7 @@ export default function App() {
       isPlaying ?
       <Keyboard guess={guess} setGuess={setGuess} submitGuess={submitGuess} foundLetters={foundLetters} wordLength={word.length}/>
       : <>
-      <GameOver word={word} hasWon={hasWon}/>
+      <GameOver word={word} definition={definition} hasWon={hasWon}/>
       <Restart randomWord={randomWord} wordOfTheDay={wordOfTheDay}/>
       </>
     }
