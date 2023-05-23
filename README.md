@@ -14,9 +14,9 @@ A Players' guess must be valid a word, otherwise the game will highlight the gue
 After each guess the game will highlight the guessed letters. Dark grey if the given word doesn't contain the letter, green for a correct letter in the correct position and yellow for a correct letter in the wrong position.
 
 **Technical Information**  
-Word list and definitions are hosted locally, binary search has been implemented to make searching the word list more efficient.
+Binary search has been implemented to make searching the word list more efficient.
 
-Word of the Day is implemented with the splitmix32 PRNG as documented here, using the current date as the seed.
+Word of the Day is implemented using the splitmix32 PRNG as documented here, using the current date as the seed.
 
 ### Setup
 *Built with: Node v19.7.0, React v18.2.0*
