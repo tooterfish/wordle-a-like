@@ -60,8 +60,8 @@ function binarySearch(array, value) {
   let high = array.length - 1
   while (low <= high) {
     const mid = Math.floor((low + high) / 2)
-    if (array[mid] > value) high = mid - 1
-    else if (array[mid] < value) low = mid + 1
+    if (array[mid][0] > value) high = mid - 1
+    else if (array[mid][0] < value) low = mid + 1
     else return mid
   }
   return -1
