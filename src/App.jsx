@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react'
 
 import {checkGuess, getRandomWord, getWordOfTheDay, wordExists} from './appUtils'
 
+import Header from './Header'
+import Footer from './Footer'
 import RowChecked from './RowChecked'
 import RowInput from './RowInput'
 import RowBlank from './RowBlank'
@@ -114,33 +116,37 @@ export default function App() {
   }
 
   return (
+    <>
+    <Header />
     <div className="app">
-    <div className="game-container">
-    <div className="game-board">
-      {checkedGuesses.map((checkedGuess, i) => {
-        if (i === inputRow) return <RowInput key={i} guess={guess} wordLength={word.length} isWord={isWord}/>
-        else if (checkedGuess.length !== 0) return <RowChecked key={i} checkedGuess={checkedGuess} />
-        else return <RowBlank key={i} wordSize={word.length}/>
-      })}
+      <div className="game-container">
+        <div className="game-board">
+          {checkedGuesses.map((checkedGuess, i) => {
+            if (i === inputRow) return <RowInput key={i} guess={guess} wordLength={word.length} isWord={isWord}/>
+            else if (checkedGuess.length !== 0) return <RowChecked key={i} checkedGuess={checkedGuess} />
+            else return <RowBlank key={i} wordSize={word.length}/>
+          })}
+        </div>
+        {
+          isPlaying ?
+          <Keyboard guess={guess} setGuess={setGuess} submitGuess={submitGuess} foundLetters={foundLetters} wordLength={word.length}/>
+          :
+          <div className="info">
+          {
+            word === '     ' ?
+            <>
+              <Welcome />
+            </> :
+            <>
+              <GameOver word={word} definition={definition} hasWon={hasWon}/>
+            </>
+          }
+          <Restart randomWord={randomWord} wordOfTheDay={wordOfTheDay}/>
+          </div>
+        }
+        </div>
     </div>
-    {
-      isPlaying ?
-      <Keyboard guess={guess} setGuess={setGuess} submitGuess={submitGuess} foundLetters={foundLetters} wordLength={word.length}/>
-      :
-      <div className="info">
-      {
-        word === '     ' ?
-        <>
-          <Welcome />
-        </> :
-        <>
-          <GameOver word={word} definition={definition} hasWon={hasWon}/>
-        </>
-      }
-      <Restart randomWord={randomWord} wordOfTheDay={wordOfTheDay}/>
-      </div>
-    }
-    </div>
-    </div>
+    <Footer />
+    </>
   )
 }
