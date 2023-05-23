@@ -11,7 +11,6 @@ import Keyboard from './Keyboard'
 import GameOver from './GameOver'
 import Restart from './Restart'
 
-// import words from './words.json'
 import wordsAndDefs from './wordsAndDefs.json'
 
 export default function App() {
