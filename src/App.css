@@ -13,6 +13,12 @@
   width: 400px;
 }
 
+@media screen and (min-width: 600px) and (min-height: 700px) {
+  .game-container {
+    width: 600px;
+  }  
+}
+
 .game-board {
   margin-bottom: 10px;
 }

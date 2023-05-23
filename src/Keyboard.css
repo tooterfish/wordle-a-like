@@ -21,6 +21,24 @@
   transition: 250ms;
 }
 
+.special-key {
+  font-size: 12px;
+  width: 45px;
+}
+
+@media screen and (min-width: 600px) and (min-height: 700px) {
+  .key {
+    width: 45px;
+    height: 60px;
+    font-size: 20px;
+  }
+
+  .special-key {
+    width: 60px;
+    font-size: 12px;
+  }
+}
+
 .key:focus {
   outline: 1px solid grey;
 }
@@ -29,10 +47,6 @@
   transform: translateY(-2px);
 }
 
-.special-key {
-  font-size: 12px;
-  width: 45px;
-}
 
 .key-match {
   background-color: green;
