@@ -29,10 +29,6 @@ export default function App() {
   const [isPlaying, setIsPlaying] = useState(false)
   
   useEffect(() => {
-    // wordOfTheDay()
-  }, [])
-
-  useEffect(() => {
     if (word.length > 0) {
       if (guess.length === word.length) {
         if (!wordExists(wordsAndDefs, guess.join(''))) {
@@ -45,10 +41,6 @@ export default function App() {
       }
     }
   }, [guess])
-
-  useEffect(() => {
-    console.log(hasWon, "<<<<< hasWon", isPlaying, "<<<<< isPlaying")
-  }, [inputRow])
 
   function reset() {
     setCheckedGuesses([[], [], [], [], [], []])
@@ -75,7 +67,6 @@ export default function App() {
 
   function submitGuess() {
     if (isWord) {}
-      console.log(word) //debug
       const {newGuess, isCorrect}= checkGuess(word, guess)
       const newFoundLetters = {...foundLetters}
       newGuess.forEach((letter) => {
@@ -93,15 +84,13 @@ export default function App() {
           newFoundLetters[letter.char] = letter.match
         }
       })
-      // setHasWon(isCorrect)
+
       setFoundLetters(newFoundLetters)
       const newGuesses = [...checkedGuesses]
       newGuesses[inputRow] = newGuess
       setCheckedGuesses(newGuesses)
       setInputRow(inputRow + 1)
       setGuess([])
-
-      // console.log(isCorrect)
 
       if (isCorrect) {
         setHasWon(true)
@@ -111,8 +100,6 @@ export default function App() {
           setIsPlaying(false)
       }
 
-      // console.log('gameover ', !isPlaying, ' has won ', hasWon)
-    // }
   }
 
   return (
