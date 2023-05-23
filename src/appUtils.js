@@ -40,14 +40,14 @@ export function checkGuess(w, g) {
 
 export function getRandomWord(words) {
   const i = Math.floor(Math.random() * words.length)
-  return words[i]
+  return {newWord: words[i][0], newDef: words[i][1]}
 }
 
 export function getWordOfTheDay(words) {
   const date = new Date
   const seed = Number(date.getUTCDate().toString() + date.getUTCMonth().toString() + date.getUTCFullYear().toString())
   const i = Math.floor(splitmix32(seed)() * words.length)
-  return words[i]
+  return {newWord: words[i][0], newDef: words[i][1]}
 }
 
 export function wordExists(words, word) {

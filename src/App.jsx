@@ -11,7 +11,7 @@ import Keyboard from './Keyboard'
 import GameOver from './GameOver'
 import Restart from './Restart'
 
-import words from './words.json'
+// import words from './words.json'
 import wordsAndDefs from './wordsAndDefs.json'
 
 export default function App() {
@@ -27,15 +27,13 @@ export default function App() {
   const [isPlaying, setIsPlaying] = useState(true)
   
   useEffect(() => {
-    const newWord = getWordOfTheDay(wordsAndDefs)
-      setWord(newWord[0])
-      setDefinition(newWord[1])
+    wordOfTheDay()
   }, [])
 
   useEffect(() => {
     if (word.length > 0) {
       if (guess.length === word.length) {
-        if (!wordExists(words, guess.join(''))) {
+        if (!wordExists(wordsAndDefs, guess.join(''))) {
           setIsWord(false)
         }
         else setIsWord(true)
@@ -61,16 +59,16 @@ export default function App() {
 
   function randomWord() {
     reset()
-    const newWord = getRandomWord(wordsAndDefs)
-    setWord(newWord[0])
-    setDefinition(newWord[1])
+    const {newWord, newDef} = getRandomWord(wordsAndDefs)
+    setWord(newWord)
+    setDefinition(newDef)
   }
 
   function wordOfTheDay() {
     reset()
-    const newWord = getWordOfTheDay(wordsAndDefs)
-    setWord(newWord[0])
-    setDefinition(newWord[1])
+    const {newWord, newDef} = getWordOfTheDay(wordsAndDefs)
+    setWord(newWord)
+    setDefinition(newDef)
   }
 
   function submitGuess() {
