@@ -5,7 +5,7 @@
 Wordle-a-Like is a Wordle clone created with React/Vite as a coding excercise and portfolio project.
 
 ### Link to Hosted Version
-https://worldlealike.netlify.app/
+https://wordlealike.netlify.app/
 
 **How to Play**  
 Wordle is a word guessing game in which players get six attempts to guess a given word. Players may choose either a random word or the word of the day.
