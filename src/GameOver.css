@@ -1,4 +1,17 @@
 .gameover {
   justify-content: center;
+  align-items: center;
   text-align: center;
+}
+
+.gameover h3 {
+  margin: 0px;
+}
+
+.gameover-answer {
+  margin-bottom: 10px;
+}
+
+.gameover-definition {
+  margin-bottom: 10px;
 }

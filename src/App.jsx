@@ -116,7 +116,8 @@ export default function App() {
   }
 
   return (
-    <>
+    <div className="app-container">
+    <div className="app">
     <div className="game-board">
       {checkedGuesses.map((checkedGuess, i) => {
         if (i === inputRow) return <RowInput key={i} guess={guess} wordLength={word.length} isWord={isWord}/>
@@ -132,6 +133,7 @@ export default function App() {
       <Restart randomWord={randomWord} wordOfTheDay={wordOfTheDay}/>
       </>
     }
-    </>
+    </div>
+    </div>
   )
 }

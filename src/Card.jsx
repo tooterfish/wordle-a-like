@@ -20,6 +20,4 @@ export default function Card({char, flipIndex, frontStyle, backStyle}) {
     <div className={`back card-${backStyle}`}>{char}</div>
   </div>
   </>
-  
-  
 }

@@ -10,16 +10,22 @@ export default function GameOver({word, definition, hasWon}) {
     msg = 'Congratulations!'
   }
 
+  const formattedWord = word[0].toUpperCase() + word.slice(1)
+
   const finishedWord = []
   for (const char of word) {
         finishedWord.push({char: char, match: 'match'})
   }
 
   return <div className="gameover">
-    <b>{msg}</b><br />
-    The word you were looking for is:<br />
+    <h3>{msg}</h3><br />
+    <div className="gameover-answer">
+    The word you were looking for was<br />
     <RowChecked checkedGuess={finishedWord}/>
-    <b>{word[0].toUpperCase() + word.slice(1)}</b>, {definition}<br />
+    </div>
+    <div className="gameover-definition">
+    <b>{formattedWord}</b>, {definition}<br />
+    </div>
     Would you like to play again?
   </div>
 }
