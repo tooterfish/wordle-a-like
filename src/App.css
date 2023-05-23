@@ -2,12 +2,12 @@
   font-family:monospace;
 }
 
-.app-container {
+.app {
   display: flex;
   justify-content: center;
 }
 
-.app {
+.game-container {
   width: 300px;
 }
 

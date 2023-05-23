@@ -1,11 +1,19 @@
-.gameover {
+.info {
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
-.gameover h3 {
+.info h3 {
   margin: 0px;
+}
+
+.info h2 {
+  margin: 0px;
+}
+
+.info-title {
+  margin-bottom: 10px;
 }
 
 .gameover-answer {

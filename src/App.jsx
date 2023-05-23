@@ -9,12 +9,13 @@ import RowInput from './RowInput'
 import RowBlank from './RowBlank'
 import Keyboard from './Keyboard'
 import GameOver from './GameOver'
+import Welcome from './Welcome'
 import Restart from './Restart'
 
 import wordsAndDefs from './wordsAndDefs.json'
 
 export default function App() {
-  const [word, setWord] = useState('')
+  const [word, setWord] = useState('     ')
   const [definition, setDefinition] = useState('')
   const [guess, setGuess] = useState([])
   const [isWord, setIsWord] = useState(true)
@@ -23,10 +24,10 @@ export default function App() {
   const [inputRow, setInputRow] = useState(0)
 
   const [hasWon, setHasWon] = useState(false)
-  const [isPlaying, setIsPlaying] = useState(true)
+  const [isPlaying, setIsPlaying] = useState(false)
   
   useEffect(() => {
-    wordOfTheDay()
+    // wordOfTheDay()
   }, [])
 
   useEffect(() => {
@@ -113,8 +114,8 @@ export default function App() {
   }
 
   return (
-    <div className="app-container">
     <div className="app">
+    <div className="game-container">
     <div className="game-board">
       {checkedGuesses.map((checkedGuess, i) => {
         if (i === inputRow) return <RowInput key={i} guess={guess} wordLength={word.length} isWord={isWord}/>
@@ -125,10 +126,19 @@ export default function App() {
     {
       isPlaying ?
       <Keyboard guess={guess} setGuess={setGuess} submitGuess={submitGuess} foundLetters={foundLetters} wordLength={word.length}/>
-      : <>
-      <GameOver word={word} definition={definition} hasWon={hasWon}/>
+      :
+      <div className="info">
+      {
+        word === '     ' ?
+        <>
+          <Welcome />
+        </> :
+        <>
+          <GameOver word={word} definition={definition} hasWon={hasWon}/>
+        </>
+      }
       <Restart randomWord={randomWord} wordOfTheDay={wordOfTheDay}/>
-      </>
+      </div>
     }
     </div>
     </div>
