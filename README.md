@@ -17,7 +17,7 @@ After each guess the game will highlight the guessed letters. Dark grey if the g
 **Technical Information**  
 Binary search has been implemented to make searching the word list more efficient.
 
-Word of the Day is implemented using the splitmix32 PRNG as documented here, using the current date as the seed.
+Word of the Day is implemented using the splitmix32 PRNG as documented [here](https://github.com/bryc/code/blob/master/jshash/PRNGs.md), using the current date as the seed.
 
 ### Setup
 *Built with: Node v19.7.0, React v18.2.0*
