@@ -1,19 +1,28 @@
-export function checkGuess(w, g) {
+export function checkGuess(w, g, isWord) {
   const word = [...w]
   const guess = [...g]
   const checkedGuess = []
   let isCorrect = false
+  
+  //if guess is not a word
+  if (!isWord) {
+    console.log('not word')
+    for (let i = 0; i < guess.length; i++) {
+      checkedGuess[i] = {char: guess[i], match: 'not-a-word'}
+    }
+    return {newGuess: checkedGuess, isCorrect: isCorrect}
+  }
 
- //check full matches
- let matches = 0
- for (let i = 0; i < guess.length; i++) {
-   if (guess[i] === word[i]) {
-     checkedGuess[i] = {char: guess[i], match: 'match'}
-     guess[i] = ' '
-     word[i] = ' '
-     matches += 1
-   }
- }
+  //check full matches
+  let matches = 0
+  for (let i = 0; i < guess.length; i++) {
+    if (guess[i] === word[i]) {
+      checkedGuess[i] = {char: guess[i], match: 'match'}
+      guess[i] = ' '
+      word[i] = ' '
+      matches += 1
+    }
+  }
 
  // if all characters are full matches no need to check for partial-matches
  if (matches === word.length) {
