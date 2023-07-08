@@ -84,6 +84,7 @@ export default function App() {
     if (isCorrect) {
       setHasWon(true)
       setIsPlaying(false)
+      setInputRow(checkedGuesses.length)
     } 
     if (inputRow >= checkedGuesses.length - 1) {
         setIsPlaying(false)
