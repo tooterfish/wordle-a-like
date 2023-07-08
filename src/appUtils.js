@@ -6,7 +6,6 @@ export function checkGuess(w, g, isWord) {
   
   //if guess is not a word
   if (!isWord) {
-    console.log('not word')
     for (let i = 0; i < guess.length; i++) {
       checkedGuess[i] = {char: guess[i], match: 'not-a-word'}
     }
