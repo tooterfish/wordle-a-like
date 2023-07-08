@@ -103,8 +103,8 @@
   transition: 250ms;
 }
 
-.not-a-word {
-  background-color: red;
-  border: 1px solid red;
+.card-not-a-word {
+  background-color: lightcoral;
+  border: 1px solid lightcoral;
   transition: 250ms;
 }
