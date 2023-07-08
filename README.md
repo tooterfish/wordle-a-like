@@ -10,9 +10,9 @@ https://wordlealike.netlify.app/
 **How to Play**  
 Wordle is a word guessing game in which players get six attempts to guess a given word. Players may choose either a random word or the word of the day.
 
-A Players' guess must be valid a word, otherwise the game will highlight the guessed letters in red and won't accept the submission.
-
 After each guess the game will highlight the guessed letters. Dark grey if the given word doesn't contain the letter, green for a correct letter in the correct position and yellow for a correct letter in the wrong position.
+
+A Player's guess must be valid a word, otherwise the game will highlight the guessed letters in red even if they are correct.
 
 **Technical Information**  
 Binary search has been implemented to make searching the word list more efficient.
