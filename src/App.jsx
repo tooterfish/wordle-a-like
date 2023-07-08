@@ -27,20 +27,6 @@ export default function App() {
 
   const [hasWon, setHasWon] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
-  
-  useEffect(() => {
-    // if (word.length > 0) {
-    //   if (guess.length === word.length) {
-    //     if (!wordExists(wordsAndDefs, guess.join(''))) {
-    //       setIsWord(false)
-    //     }
-    //     else setIsWord(true)
-    //   }
-    //   else {
-    //     setIsWord(true)
-    //   }
-    // }
-  }, [guess])
 
   function reset() {
     setCheckedGuesses([[], [], [], [], [], []])
