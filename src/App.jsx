@@ -27,20 +27,6 @@ export default function App() {
 
   const [hasWon, setHasWon] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
-  
-  useEffect(() => {
-    if (word.length > 0) {
-      if (guess.length === word.length) {
-        if (!wordExists(wordsAndDefs, guess.join(''))) {
-          setIsWord(false)
-        }
-        else setIsWord(true)
-      }
-      else {
-        setIsWord(true)
-      }
-    }
-  }, [guess])
 
   function reset() {
     setCheckedGuesses([[], [], [], [], [], []])
@@ -66,8 +52,10 @@ export default function App() {
   }
 
   function submitGuess() {
-    if (isWord) {}
-      const {newGuess, isCorrect}= checkGuess(word, guess)
+    const isWord = wordExists(wordsAndDefs, guess.join(''))
+    const {newGuess, isCorrect} = checkGuess(word, guess, isWord)
+
+    if (isWord) {
       const newFoundLetters = {...foundLetters}
       newGuess.forEach((letter) => {
         if (newFoundLetters[letter.char]) {
@@ -84,22 +72,23 @@ export default function App() {
           newFoundLetters[letter.char] = letter.match
         }
       })
-
       setFoundLetters(newFoundLetters)
-      const newGuesses = [...checkedGuesses]
-      newGuesses[inputRow] = newGuess
-      setCheckedGuesses(newGuesses)
-      setInputRow(inputRow + 1)
-      setGuess([])
+    }
 
-      if (isCorrect) {
-        setHasWon(true)
+    const newGuesses = [...checkedGuesses]
+    newGuesses[inputRow] = newGuess
+    setCheckedGuesses(newGuesses)
+    setInputRow(inputRow + 1)
+    setGuess([])
+
+    if (isCorrect) {
+      setHasWon(true)
+      setIsPlaying(false)
+      setInputRow(checkedGuesses.length)
+    } 
+    if (inputRow >= checkedGuesses.length - 1) {
         setIsPlaying(false)
-      } 
-      if (inputRow >= checkedGuesses.length - 1) {
-          setIsPlaying(false)
-      }
-
+    }
   }
 
   return (
