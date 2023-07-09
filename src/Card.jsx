@@ -17,12 +17,10 @@ export default function Card({char, flipIndex, frontStyle, backStyle, winRow}) {
 
   if (winRow) {
       setTimeout(() => {
-        setFlipped(`won`)
+        setFlipped(`card-no-transition won`)
         setWon('card-match')
       }, 100 * flipIndex + 1000)
   }
-
-
 
   return <>
   <div className={`card ${flipped}`}>

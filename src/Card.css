@@ -19,6 +19,10 @@
   transition: 250ms;
 }
 
+.card-no-transition {
+  transition: 0ms;
+}
+
 @media screen and (min-width: 600px) and (min-height: 700px) {
   .card {
     width: 60px;
