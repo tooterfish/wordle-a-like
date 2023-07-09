@@ -81,6 +81,17 @@
   animation-duration: 0.2s;
 }
 
+@keyframes won {
+  50% {
+    transform: translateY(-3px)
+  }
+}
+
+.won {
+  animation-name: won;
+  animation-duration: 0.2s;
+}
+
 .card-no-match {
   background-color: grey;
   border: 1px solid grey;

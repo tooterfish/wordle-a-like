@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react'
 
 import './Card.css'
 
-export default function Card({char, flipIndex, frontStyle, backStyle}) {
+export default function Card({char, flipIndex, frontStyle, backStyle, winRow}) {
 
   const [flipped, setFlipped] = useState('')
+  const [won, setWon] = useState('')
 
   if (backStyle) {
     useEffect(() => {
@@ -14,9 +15,18 @@ export default function Card({char, flipIndex, frontStyle, backStyle}) {
     }, [])
   }
 
+  if (winRow) {
+      setTimeout(() => {
+        setFlipped(`won`)
+        setWon('card-match')
+      }, 100 * flipIndex + 1000)
+  }
+
+
+
   return <>
   <div className={`card ${flipped}`}>
-    <div className={`front ${frontStyle}`}>{char}</div>
+    <div className={`front ${frontStyle} ${won}`}>{char}</div>
     <div className={`back card-${backStyle}`}>{char}</div>
   </div>
   </>
