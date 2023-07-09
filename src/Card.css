@@ -73,6 +73,10 @@
 
 .filled {
   border: 1px solid darkgrey;
+}
+
+.filled-animated {
+  border: 1px solid darkgrey;
   animation-name: filled;
   animation-duration: 0.2s;
 }
