@@ -10,7 +10,7 @@ export default function Card({char, flipIndex, frontStyle, backStyle}) {
     useEffect(() => {
       setTimeout(() => {
         setFlipped('card-flipped')
-      }, 100 * flipIndex)
+      }, 100 * flipIndex + 100)
     }, [])
   }
 
