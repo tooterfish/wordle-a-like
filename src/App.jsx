@@ -24,6 +24,7 @@ export default function App() {
   const [checkedGuesses, setCheckedGuesses] = useState([[], [], [], [], [], []])
   const [foundLetters, setFoundLetters] = useState({})
   const [inputRow, setInputRow] = useState(0)
+  const [winRow, setWinRow] = useState()
 
   const [hasWon, setHasWon] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
@@ -35,6 +36,7 @@ export default function App() {
     setGuess([])
     setIsPlaying(true)
     setHasWon(false)
+    setWinRow()
   }
 
   function randomWord() {
@@ -83,6 +85,7 @@ export default function App() {
 
     if (isCorrect) {
       setHasWon(true)
+      setWinRow(inputRow)
       setIsPlaying(false)
       setInputRow(checkedGuesses.length)
     } 
@@ -99,7 +102,7 @@ export default function App() {
         <div className="game-board">
           {checkedGuesses.map((checkedGuess, i) => {
             if (i === inputRow) return <RowInput key={i} guess={guess} wordLength={word.length} isWord={isWord}/>
-            else if (checkedGuess.length !== 0) return <RowChecked key={i} checkedGuess={checkedGuess} />
+            else if (checkedGuess.length !== 0) return <RowChecked key={i} checkedGuess={checkedGuess} winRow={(winRow === i)}/>
             else return <RowBlank key={i} wordSize={word.length}/>
           })}
         </div>

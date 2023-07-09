@@ -73,7 +73,22 @@
 
 .filled {
   border: 1px solid darkgrey;
+}
+
+.filled-animated {
+  border: 1px solid darkgrey;
   animation-name: filled;
+  animation-duration: 0.2s;
+}
+
+@keyframes won {
+  50% {
+    transform: translateY(-3px)
+  }
+}
+
+.won {
+  animation-name: won;
   animation-duration: 0.2s;
 }
 

@@ -21,7 +21,7 @@ export default function GameOver({word, definition, hasWon}) {
     <h3>{msg}</h3><br />
     <div className="gameover-answer">
     The word you were looking for was<br />
-    <RowChecked checkedGuess={finishedWord}/>
+    <RowChecked checkedGuess={finishedWord} winRow={true}/>
     </div>
     <div className="gameover-definition">
     <b>{formattedWord}</b>, {definition}<br />
