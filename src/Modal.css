@@ -16,16 +16,24 @@
   margin-top: 2px;
   margin-right: 2px;
   position:absolute;
-  top: 0;
-  right: 0;
-  padding: 0px;
+  top: 5px;
+  right: 5px;
   width: 30px;
   height: 30px;
   border: 0px;
   font-size: 20px;
+  /* border: 2px solid black; */
   background-color: white;
+
+  margin: auto;
+  line-height: 1.25rem;
+  padding: 0px;
 }
 
 .modal-close-btn:hover {
   cursor: pointer;
+}
+
+.modal-close-btn:focus {
+  outline: 3px solid lightblue;
 }
