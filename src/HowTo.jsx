@@ -2,8 +2,8 @@
 import './Modal.css'
 import './HowTo.css'
 
-import { useRef, useEffect } from 'react'
-import RowBlank from './RowBlank'
+import { useRef, useState, useEffect } from 'react'
+import RowHowTo from './RowHowTo'
 
 export default function HowTo({isOpen, setOpen, onClose, children}) {
   const modalRef = useRef(null)
@@ -46,9 +46,14 @@ export default function HowTo({isOpen, setOpen, onClose, children}) {
        <button className='modal-close-btn' onClick={handleCloseModal}>
         Close
       </button>
-      <RowBlank wordSize={5}/>
-      <RowBlank wordSize={5}/>
-      <RowBlank wordSize={5}/>
+      {isOpen ?
+      <>
+      <RowHowTo word={['A','','','','']} type={'match'}/>
+      <RowHowTo word={['','','B','','']} type={'partial-match'}/>
+      <RowHowTo word={['','','','','C']} type={'no-match'}/>
+      </>
+      : <></>}
+      
     </dialog>
   )
 }
