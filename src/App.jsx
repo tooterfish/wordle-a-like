@@ -30,7 +30,7 @@ export default function App() {
   const [hasWon, setHasWon] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
 
-  const [howToOpen, setHowToOpen] = useState(false)
+  const [howToOpen, setHowToOpen] = useState(true)
 
   function openHowTo() {
     setHowToOpen(true)
