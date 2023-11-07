@@ -46,6 +46,7 @@ export default function HowTo({isOpen, setOpen, onClose, children}) {
        <button className='modal-close-btn' onClick={handleCloseModal}>
         Close
       </button>
+      <div className={'howto'}>
       {isOpen ?
       <>
       <h2>How to play</h2>
@@ -62,7 +63,7 @@ export default function HowTo({isOpen, setOpen, onClose, children}) {
       <p>I is not in the word</p>
       </>
       : <></>}
-      
+      </div>
     </dialog>
   )
 }
