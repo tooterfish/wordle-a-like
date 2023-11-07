@@ -1,0 +1,44 @@
+@keyframes howtoFadeIn {
+  from {opacity: 0%;
+        transform: translateY(-200px);}
+  to {opacity: 100%;
+      transform: translateY(0px);}
+}
+
+@keyframes howtoFadeOut {
+  from {opacity: 100%;
+        transform: translateY(0px);}
+  to {opacity: 0%;
+      transform: translateY(-200px);}
+}
+
+.howto>p {
+  padding: 0px;
+  margin: 0px;
+  margin-bottom: 10px;
+  /* background-color: red; */
+}
+
+.howto>h2 {
+  padding: 0px;
+  margin: 0px;
+}
+
+.howto>ul {
+  margin: 0px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  padding: 0px;
+}
+
+.howto>ul>li {
+  margin-top: 4px;
+}
+
+.howto-open {
+  animation: howtoFadeIn .3s forwards;
+}
+
+.howto-close {
+  animation: howtoFadeOut .3s forwards;
+}

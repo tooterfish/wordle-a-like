@@ -3,6 +3,10 @@
   justify-content: center;
 }
 
+.row-howto {
+  justify-content: left;
+}
+
 .input-row {
   /* background-color: lightcyan; */
 }

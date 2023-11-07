@@ -2,7 +2,7 @@
 
 
 ## Project Summary
-Wordle-a-Like is a Wordle clone created with React/Vite as a coding excercise and portfolio project.
+Wordle-a-Like is a Wordle game created with React/Vite as a coding excercise and portfolio project.
 
 ### Link to Hosted Version
 https://wordlealike.netlify.app/
@@ -29,6 +29,6 @@ To setup the project locally:
 - Run ```npm run dev``` 
 
 ### Todo:
-- Implement a "how to play" popup.
+~~- Implement a "how to play" popup.~~
 - Add support for user logins, to allow users to view their play stats.
 - Compress the word list, as it's a little large at the moment.
