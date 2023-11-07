@@ -60,7 +60,7 @@ export default function HowTo({isOpen, setOpen, onClose, children}) {
       <RowHowTo word={['I','M','P','L','Y']} type={'partial-match'} position={1}/>
       <p>M is in the word but in the incorrect spot.</p>
       <RowHowTo word={['S','M','I','L','E']} type={'no-match'} position={3}/>
-      <p>I is not in the word</p>
+      <p>L is not in the word</p>
       </>
       : <></>}
       </div>
