@@ -48,9 +48,18 @@ export default function HowTo({isOpen, setOpen, onClose, children}) {
       </button>
       {isOpen ?
       <>
-      <RowHowTo word={['A','','','','']} type={'match'}/>
-      <RowHowTo word={['','','B','','']} type={'partial-match'}/>
-      <RowHowTo word={['','','','','C']} type={'no-match'}/>
+      <h2>How to play</h2>
+      <p>Guess the word in 6 tries.</p>
+      <ul>
+        <li>Each guess must be a valid word.</li>
+        <li>The color of the tiles will change to show how close your guess was to the word.</li>
+      </ul>
+      <RowHowTo word={['A','L','E','R','T']} type={'match'} position={0}/>
+      <p>A is in the word and in the correct spot.</p>
+      <RowHowTo word={['I','M','P','L','Y']} type={'partial-match'} position={1}/>
+      <p>M is in the word but in the incorrect spot.</p>
+      <RowHowTo word={['S','M','I','L','E']} type={'no-match'} position={3}/>
+      <p>I is not in the word</p>
       </>
       : <></>}
       
