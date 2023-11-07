@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import {checkGuess, getRandomWord, getWordOfTheDay, wordExists} from './appUtils'
 
 import Header from './Header'
+import HowTo from './HowTo'
 import Footer from './Footer'
 import RowChecked from './RowChecked'
 import RowInput from './RowInput'
@@ -28,6 +29,12 @@ export default function App() {
 
   const [hasWon, setHasWon] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
+
+  const [howToOpen, setHowToOpen] = useState(false)
+
+  function openHowTo() {
+    setHowToOpen(true)
+  }
 
   function reset() {
     setCheckedGuesses([[], [], [], [], [], []])
@@ -96,7 +103,8 @@ export default function App() {
 
   return (
     <>
-    <Header />
+    <Header openHowTo={openHowTo}/>
+    <HowTo isOpen={howToOpen} setOpen={setHowToOpen}/>
     <div className="app">
       <div className="game-container">
         <div className="game-board">
