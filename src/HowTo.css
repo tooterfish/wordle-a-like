@@ -31,6 +31,10 @@
   padding: 0px;
 }
 
+.howto>ul>li {
+  margin-top: 4px;
+}
+
 .howto-open {
   animation: howtoFadeIn .3s forwards;
 }

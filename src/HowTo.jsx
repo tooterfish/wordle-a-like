@@ -43,8 +43,8 @@ export default function HowTo({isOpen, setOpen, onClose, children}) {
 
   return (
     <dialog ref={modalRef} onKeyDown={handleKeyDown} className={`modal howto-open`}>
-       <button className='modal-close-btn' onClick={handleCloseModal}>
-        Close
+       <button autoFocus className='modal-close-btn' onClick={handleCloseModal}>
+        x
       </button>
       <div className={'howto'}>
       {isOpen ?

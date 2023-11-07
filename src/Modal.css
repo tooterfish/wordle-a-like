@@ -1,6 +1,7 @@
 .modal {
   width:330px;
   height:550px;
+  border:0px;
 }
 
 @media screen and (min-width: 600px) and (min-height: 700px) {
@@ -8,4 +9,23 @@
     width:450px;
     height:600px;
   }
+}
+
+.modal-close-btn {
+  margin: 0px;
+  margin-top: 2px;
+  margin-right: 2px;
+  position:absolute;
+  top: 0;
+  right: 0;
+  padding: 0px;
+  width: 30px;
+  height: 30px;
+  border: 0px;
+  font-size: 20px;
+  background-color: white;
+}
+
+.modal-close-btn:hover {
+  cursor: pointer;
 }
