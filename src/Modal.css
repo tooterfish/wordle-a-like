@@ -32,6 +32,10 @@
   padding: 0px;
 }
 
+.modal::backdrop {
+  opacity:0%;
+}
+
 .modal-close-btn:hover {
   cursor: pointer;
 }
