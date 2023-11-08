@@ -53,7 +53,7 @@ export default function HowTo({isOpen, setOpen, onClose, children}) {
       <p>Guess the word in 6 tries.</p>
       <ul>
         <li>Each guess must be a valid word.</li>
-        <li>The color of the tiles will change to show how close your guess was to the word.</li>
+        <li>The colour of the tiles will change to show how close your guess was to the word.</li>
       </ul>
       <RowHowTo word={['A','L','E','R','T']} type={'match'} position={0}/>
       <p>A is in the word and in the correct spot.</p>
