@@ -24,14 +24,16 @@
 }
 
 .howto>ul {
+  list-style-type: none;
   margin: 0px;
   margin-bottom: 10px;
-  margin-left: 20px;
+  /* margin-left: 20px; */
   padding: 0px;
 }
 
 .howto>ul>li {
   margin-top: 4px;
+  padding-bottom: 2px;
 }
 
 .howto-open {
