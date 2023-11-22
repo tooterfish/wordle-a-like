@@ -61,6 +61,8 @@ export default function HowTo({isOpen, setOpen, onClose, children}) {
       <p>M is in the word but in the incorrect spot.</p>
       <RowHowTo word={['S','M','I','L','E']} type={'no-match'} position={3}/>
       <p>L is not in the word</p>
+      <RowHowTo word={['P','L','I','P','U']} type={'not-a-word'}/>
+      <p>PLIPU is not a word</p>
       </>
       : <></>}
       </div>
